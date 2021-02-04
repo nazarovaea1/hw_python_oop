@@ -79,14 +79,16 @@ class CaloriesCalculator(Calculator):
     def get_calories_remained(self):
         today_calories_remained = abs(self.limit - self.get_today_stats())
         if self.get_today_stats() < self.limit:
-            answer_calor1_1 = 'Сегодня можно съесть что-нибудь ещё, но с общей '
-            answer_calor1_2 = 'калорийностью не более '
+            answer_calor1_1 = 'Сегодня можно съесть что-нибудь ещё, но с общей'
+            answer_calor1_2 = ' калорийностью не более '
             answer_calor1_3 = str(today_calories_remained) + ' кКал'
             answer_calor1 = answer_calor1_1 + answer_calor1_2 + answer_calor1_3
             return answer_calor1
         else:
             answer_calor2 = 'Хватит есть!'
             return answer_calor2
+
+
 # создадим калькулятор денег с дневным лимитом 1000
 cash_calculator = CashCalculator(1000)
 calories_calculator = CaloriesCalculator(1000)
