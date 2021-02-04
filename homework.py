@@ -58,13 +58,18 @@ class CashCalculator(Calculator):
             currency_value = 'руб'
 
         if self.get_today_stats() < self.limit:
-            answer_cash1 = 'На сегодня осталось ' + str(today_cash_remained) + ' ' + str(currency_value)
+            answer_cash1_1 = 'На сегодня осталось ' + str(today_cash_remained)
+            answer_cash1_2 = ' ' + str(currency_value)
+            answer_cash1 = answer_cash1_1 + answer_cash1_2
             return answer_cash1
         elif self.get_today_stats() == self.limit:
             answer_cash2 = 'Денег нет, держись'
             return answer_cash2
         else:
-            answer_cash3 = 'Денег нет, держись: твой долг - ' + str(abs(today_cash_remained)) + ' ' + str(currency_value)
+            answer_cash3_1 = 'Денег нет, держись: твой долг - '
+            answer_cash3_2 = str(abs(today_cash_remained)) + ' '
+            answer_cash3_3 = str(currency_value)
+            answer_cash3 = answer_cash3_1 + answer_cash3_2 + answer_cash3_3
             return answer_cash3
 
 
@@ -74,7 +79,10 @@ class CaloriesCalculator(Calculator):
     def get_calories_remained(self):
         today_calories_remained = abs(self.limit - self.get_today_stats())
         if self.get_today_stats() < self.limit:
-            answer_calor1 = 'Сегодня можно съесть что-нибудь ещё, но с общей калорийностью не более ' + str(today_calories_remained) + ' ' + 'кКал'
+            answer_calor1_1 = 'Сегодня можно съесть что-нибудь ещё, но с общей '
+            answer_calor1_2 = 'калорийностью не более '
+            answer_calor1_3 = str(today_calories_remained) + ' кКал'
+            answer_calor1 = answer_calor1_1 + answer_calor1_2 + answer_calor1_3
             return answer_calor1
         else:
             answer_calor2 = 'Хватит есть!'
