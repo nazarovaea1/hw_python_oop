@@ -70,4 +70,3 @@ class CaloriesCalculator(Calculator):
                             f'{today_calories_remained} кКал')
             return answer_calor
         return 'Хватит есть!'
-
