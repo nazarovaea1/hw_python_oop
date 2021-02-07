@@ -42,20 +42,21 @@ class CashCalculator(Calculator):
         }
 
     def get_today_cash_remained(self, currency):
-        a = self.currency_dict[currency]
+        if currency not in self.currency_dict:
+            return "Неизвестная валюта"
+        rate, currency_name = self.currency_dict[currency]
         today_cash_remained = round(((
-            self.limit - self.get_today_stats()) / a[0]), 2)
+            self.limit - self.get_today_stats()) / rate), 2)
         if self.get_today_stats() < self.limit:
             answer_cash = (f'На сегодня осталось {today_cash_remained} '
-                           f'{a[1]}')
+                           f'{currency_name}')
             return answer_cash
         elif self.get_today_stats() == self.limit:
             return 'Денег нет, держись'
         else:
             cash_rem_abs = abs(today_cash_remained)
-            answer_cash2 = ('Денег нет, держись: твой долг - '
-                            f'{cash_rem_abs} {a[1]}')
-            return answer_cash2
+            return ('Денег нет, держись: твой долг - '
+                            f'{cash_rem_abs} {currency_name}')
 
 
 class CaloriesCalculator(Calculator):
