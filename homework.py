@@ -56,7 +56,7 @@ class CashCalculator(Calculator):
         else:
             cash_rem_abs = abs(today_cash_remained)
             return ('Денег нет, держись: твой долг - '
-                            f'{cash_rem_abs} {currency_name}')
+                    f'{cash_rem_abs} {currency_name}')
 
 
 class CaloriesCalculator(Calculator):
@@ -70,3 +70,4 @@ class CaloriesCalculator(Calculator):
                             f'{today_calories_remained} кКал')
             return answer_calor
         return 'Хватит есть!'
+
